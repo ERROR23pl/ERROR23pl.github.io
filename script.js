@@ -1,7 +1,7 @@
 const COLLECTION_LINK = "https://archiveofourown.org/collections/holofics_shiptober_2025/profile";
 
 function ship(charA, charB, charC) {
-  return `${charA} x ${charB}` + (charC == "") ? "" : ` x ${charC}`
+  return `${charA} x ${charB}` + ((charC == "") ? "" : ` x ${charC}`)
 }
 
 function generate_start(data) {
@@ -30,7 +30,7 @@ function nextDay(data) {
   
   let nextLink = nextDayIsOut ? COLLECTION_LINK : data.nextLink;
   let nextDayNumber = parseInt(data.dayNumber, 10) + 1;
-  let nextDayShip = nextDayIsOut ? "find out tomorrow! ⏭️" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC)
+  let nextDayShip = nextDayIsOut ? "find out tomorrow!" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC)
   
   if (data.dayNumber != 31) {
     return `<td align="right">
