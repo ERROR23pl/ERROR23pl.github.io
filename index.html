@@ -36,30 +36,33 @@
 <body>
   <h2>Text Generator</h2>
 
-  <label for="characters">Characters</label>
+  <label for="characters">your ship: CharacterA x CharacterB</label>
   <input id="characters" type="text" />
 
-  <label for="prevCharacters">Previous Characters</label>
+  <label for="prevCharacters">ship from previous day: CharacterA x CharacterB</label>
   <input id="prevCharacters" type="text" />
 
-  <label for="prevLink">Previous Link</label>
+  <label for="prevLink">link to the previous day fic</label>
   <input id="prevLink" type="text" />
 
-  <label for="nextCharacters">Next Characters</label>
+  <label for="nextCharacters">ship from next day: CharA x CharacterB (leave empty if it's not out yet)</label>
   <input id="nextCharacters" type="text" />
 
-  <label for="nextLink">Next Link</label>
+  <label for="nextLink">link to the next day fic (leave empty if it's not out yet)</label>
   <input id="nextLink" type="text" />
 
-  <label for="startNotes">Start Notes</label>
+  <label for="startNotes">start notes</label>
   <textarea id="startNotes" rows="4"></textarea>
 
-  <label for="endNotes">End Notes</label>
+  <label for="endNotes">end notes</label>
   <textarea id="endNotes" rows="4"></textarea>
 
-  <button id="generateBtn">Generate</button>
+  <button id="generateBtn">generate HTML</button>
 
-  <label for="output">Generated Output</label>
+  <label for="output">start notes HTML:</label>
+  <textarea id="output" rows="6" readonly></textarea>
+
+  <label for="output">end notes HTML:</label>
   <textarea id="output" rows="6" readonly></textarea>
 
   <script src="script.js"></script>
