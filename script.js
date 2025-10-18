@@ -75,7 +75,6 @@ document.getElementById("generateBtn").addEventListener("click", () => {
     endNotes: document.getElementById("endNotes").value
   };
 
-  const result = generate_ui(data);
   document.getElementById("outputStart").value = generate_start(data);
   document.getElementById("outputEnd").value = generate_end(data);
 });
