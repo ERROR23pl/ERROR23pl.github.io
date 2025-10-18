@@ -41,6 +41,6 @@ document.getElementById("generateBtn").addEventListener("click", () => {
   };
 
   const result = generate_ui(data);
-  document.getElementById("outputStart").value = result;
-  document.getElementById("outputEnd").value = result;
+  document.getElementById("outputStart").value = generate_start(data);
+  document.getElementById("outputEnd").value = generate_end(data);
 });
