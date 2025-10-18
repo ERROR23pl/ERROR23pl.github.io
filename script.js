@@ -17,16 +17,37 @@ function generate_end(data) {
   return data.startNotes + generate_ui(data);
 }
 
+function prevDay(data) {
+  if data.dayNumber != 1 {
+    return `<td align="left"><a href="${data.prevLink}">⏮️ Day ${data.dayNumber - 1}: ${ship(data.prevCharactersA, data.prevCharactersB, data.prevCharactersC)}</a></td>`
+  } else {
+    return ""
+  }
+}
+
+function nextDay(data) {
+  let nextDayIsOut = (data.nextLink === "");
+  
+  let nextLink = nextDayIsOut ? COLLECTION_LINK : data.nextLink;
+  let nextDayNumber = parseInt(data.dayNumber, 10) + 1;
+  let nextDayShip = nextDayIsOut ? "find out tomorrow! ⏭️" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC)
+  
+  if data.dayNumber != 31 {
+    return `<td align="right">
+    <a href="${nextLink}">
+      Day ${nextDayNumber}: ${nextDayShip} ⏭️
+    </a></td>`
+  } else {
+    return ""
+  }
+}
+
 function generate_ui(data) {
   return `<table>
   <tbody>
     <tr>
-      <td align="left"><a href="${data.prevLink}">⏮️ Day ${data.dayNumber - 1}: ${ship(data.prevCharactersA, data.prevCharactersB, data.prevCharactersC)}</a></td>
-      
-      <td align="right">
-        <a href="${(data.nextLink === "") ? COLLECTION_LINK : data.nextLink}">
-          Day ${parseInt(data.dayNumber, 10) + 1}: ${(data.nextLink === "") ? "find out tomorrow! ⏭️" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC)}
-      </a></td>
+      ${prevDay(data)}
+      ${nextDay(data}
     </tr>
   </tbody>
 </table>`;
@@ -35,11 +56,21 @@ function generate_ui(data) {
 document.getElementById("generateBtn").addEventListener("click", () => {
   const data = {
     dayNumber: document.getElementById("dayNumber").value,
-    characters: document.getElementById("characters").value,
-    prevCharacters: document.getElementById("prevCharacters").value,
+    
+    charactersA: document.getElementById("charactersA").value,
+    charactersB: document.getElementById("charactersB").value,
+    charactersC: document.getElementById("charactersC").value,
+    
+    prevCharactersA: document.getElementById("prevCharactersA").value,
+    prevCharactersB: document.getElementById("prevCharactersB").value,
+    prevCharactersC: document.getElementById("prevCharactersC").value,
     prevLink: document.getElementById("prevLink").value,
-    nextCharacters: document.getElementById("nextCharacters").value,
+    
+    nextCharactersA: document.getElementById("nextCharactersA").value,
+    nextCharactersB: document.getElementById("nextCharactersB").value,
+    nextCharactersC: document.getElementById("nextCharactersC").value,
     nextLink: document.getElementById("nextLink").value,
+    
     startNotes: document.getElementById("startNotes").value,
     endNotes: document.getElementById("endNotes").value
   };
