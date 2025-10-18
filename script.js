@@ -82,7 +82,11 @@ document.getElementById("generateBtn").addEventListener("click", () => {
 document.getElementById("copyStart").addEventListener("click", () => {
   const output = document.getElementById("outputStart");
   navigator.clipboard.writeText(output.value)
-    .then(() => alert("Copied!"))
+    .then(() => {
+      copyStart.textContent = "copied! ✅";
+      setTimeout(() => copyBtn.textContent = "copy", 1000);
+    })
     .catch(err => console.error("Copy failed:", err));
 });
+
 
