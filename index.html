@@ -42,8 +42,15 @@
   <label for="characters">your ship:</label>
   <input id="characters" type="text" />
 
-  <label for="prevCharacters">ship from previous day: CharacterA x CharacterB</label>
-  <input id="prevCharacters" type="text" />
+  <!-- <label for="prevCharacters">ship from previous day: CharacterA x CharacterB</label>
+  <input id="prevCharacters" type="text" /> -->
+
+  <label>ship from previous day: CharacterA x CharacterB</label>
+  <div style="display: flex; align-items: center; gap: 6px;">
+    <input id="prevCharactersA" type="text" style="flex: 1;" />
+    <span>x</span>
+    <input id="prevCharactersB" type="text" style="flex: 1;" />
+  </div>
 
   <label for="prevLink">link to the previous day fic</label>
   <input id="prevLink" type="text" />
