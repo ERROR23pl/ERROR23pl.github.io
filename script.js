@@ -14,7 +14,7 @@ ${data.startNotes}` + generate_ui(data);
 }
 
 function generate_end(data) {
-  return data.startNotes + generate_ui(data);
+  return data.endNotes + generate_ui(data);
 }
 
 function prevDay(data) {
