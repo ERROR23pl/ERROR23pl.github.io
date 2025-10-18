@@ -84,9 +84,18 @@ document.getElementById("copyStart").addEventListener("click", () => {
   navigator.clipboard.writeText(output.value)
     .then(() => {
       copyStart.textContent = "copied! ✅";
-      setTimeout(() => copyBtn.textContent = "copy", 1000);
+      setTimeout(() => copyStart.textContent = "copy", 1000);
     })
     .catch(err => console.error("Copy failed:", err));
 });
 
+document.getElementById("copyEnd").addEventListener("click", () => {
+  const output = document.getElementById("outputEnd");
+  navigator.clipboard.writeText(output.value)
+    .then(() => {
+      copyEnd.textContent = "copied! ✅";
+      setTimeout(() => copyEnd.textContent = "copy", 1000);
+    })
+    .catch(err => console.error("Copy failed:", err));
+});
 
