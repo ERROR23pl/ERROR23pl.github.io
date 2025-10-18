@@ -47,7 +47,7 @@ function generate_ui(data) {
   <tbody>
     <tr>
       ${prevDay(data)}
-      ${nextDay(data}
+      ${nextDay(data)}
     </tr>
   </tbody>
 </table>`;
