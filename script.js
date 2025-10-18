@@ -1,11 +1,36 @@
+const COLLECTION_LINK = "https://archiveofourown.org/collections/holofics_shiptober_2025/profile";
+
+function generate_start(data) {
+  return `<center>
+  <a href="https://archiveofourown.org/collections/holofics_shiptober_2025/profile" rel="nofollow">Holofics Shiptober 2025</a>
+  
+  <h4>Day ${data.dayNumber}: ${data.characters}</h4>
+</center>
+${data.startNotes}` + generate_ui(data);
+}
+
+function generate_end(data) {
+  return data.startNotes + generate_ui(data);
+}
+
 function generate_ui(data) {
-  // TODO: implement your logic
-  // Return a string to be shown in the output area
-  return "todo: implement";
+  return `<table>
+  <tbody>
+    <tr>
+      <td align="left"><a href="${data.prevLink}">⏮️ Day ${data.dayNumber - 1}: ${data.prevCharacters}</a></td>
+      
+      <td align="right">
+        <a href="${(data.nextLink === "") ? COLLECTION_LINK : data.nextLink}">
+          Day ${data.dayNumber + 1}: ${(data.nextLink === "") ? "find out tomorrow! ⏭️" : data.nextCharacters}
+      </a></td>
+    </tr>
+  </tbody>
+</table>`;
 }
 
 document.getElementById("generateBtn").addEventListener("click", () => {
   const data = {
+    dayNumber: document.getElementById("dayNumber").value,
     characters: document.getElementById("characters").value,
     prevCharacters: document.getElementById("prevCharacters").value,
     prevLink: document.getElementById("prevLink").value,
@@ -16,5 +41,6 @@ document.getElementById("generateBtn").addEventListener("click", () => {
   };
 
   const result = generate_ui(data);
-  document.getElementById("output").value = result;
+  document.getElementById("outputStart").value = result;
+  document.getElementById("outputEnd").value = result;
 });
