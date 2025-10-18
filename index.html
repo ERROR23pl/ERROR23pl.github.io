@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Text Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+    }
+    #output {
+      margin-top: 20px;
+      background: #f3f3f3;
+      border: 1px solid #ccc;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h2>Text Generator</h2>
+
+  <label for="characters">Characters</label>
+  <input id="characters" type="text" />
+
+  <label for="prevCharacters">Previous Characters</label>
+  <input id="prevCharacters" type="text" />
+
+  <label for="prevLink">Previous Link</label>
+  <input id="prevLink" type="text" />
+
+  <label for="nextCharacters">Next Characters</label>
+  <input id="nextCharacters" type="text" />
+
+  <label for="nextLink">Next Link</label>
+  <input id="nextLink" type="text" />
+
+  <label for="startNotes">Start Notes</label>
+  <textarea id="startNotes" rows="4"></textarea>
+
+  <label for="endNotes">End Notes</label>
+  <textarea id="endNotes" rows="4"></textarea>
+
+  <button id="generateBtn">Generate</button>
+
+  <label for="output">Generated Output</label>
+  <textarea id="output" rows="6" readonly></textarea>
+
+  <script src="script.js"></script>
+</body>
+</html>
