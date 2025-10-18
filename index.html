@@ -36,6 +36,9 @@
 <body>
   <h2>Text Generator</h2>
 
+  <label for="dayNumber">your day number: </label>
+  <input id="dayNumber" type="number" min="1" max="31" />
+
   <label for="characters">your ship: CharacterA x CharacterB</label>
   <input id="characters" type="text" />
 
@@ -59,11 +62,11 @@
 
   <button id="generateBtn">generate HTML</button>
 
-  <label for="output">start notes HTML:</label>
-  <textarea id="output" rows="6" readonly></textarea>
+  <label for="outputStart">start notes HTML:</label>
+  <textarea id="outputStart" rows="6" readonly></textarea>
 
-  <label for="output">end notes HTML:</label>
-  <textarea id="output" rows="6" readonly></textarea>
+  <label for="outputEnd">end notes HTML:</label>
+  <textarea id="outputEnd" rows="6" readonly></textarea>
 
   <script src="script.js"></script>
 </body>
