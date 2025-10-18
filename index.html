@@ -34,8 +34,10 @@
   </style>
 </head>
 <body>
-  <h2>collection HTML UI generator</h2>
+  <h1>Shiptober HTML UI generator</h1>
 
+  <h2>your fic info</h2>
+  
   <label for="dayNumber">your day number: </label>
   <input id="dayNumber" type="number" min="1" max="31" />
 
@@ -48,7 +50,15 @@
     <input id="charactersC" type="text" style="flex: 1;" />
   </div>
 
-  <label>ship from previous day: CharacterA x CharacterB</label>
+  <label for="startNotes">start notes</label>
+  <textarea id="startNotes" rows="4"></textarea>
+
+  <label for="endNotes">end notes</label>
+  <textarea id="endNotes" rows="4"></textarea>
+
+  <h2>previous day info</h2>
+
+  <label>previous day ship:</label>
   <div style="display: flex; align-items: center; gap: 6px;">
     <input id="prevCharactersA" type="text" style="flex: 1;" />
     <span>x</span>
@@ -60,7 +70,9 @@
   <label for="prevLink">link to the previous day fic</label>
   <input id="prevLink" type="text" />
 
-  <label>ship from next day:</label>
+  <h2>next day info <strong>(leave empty if it's not out yet)<strong></h2>
+
+  <label>next day ship:</label>
   <div style="display: flex; align-items: center; gap: 6px;">
     <input id="nextCharactersA" type="text" style="flex: 1;" />
     <span>x</span>
@@ -71,12 +83,6 @@
   
   <label for="nextLink">link to the next day fic (leave empty if it's not out yet)</label>
   <input id="nextLink" type="text" />
-
-  <label for="startNotes">start notes</label>
-  <textarea id="startNotes" rows="4"></textarea>
-
-  <label for="endNotes">end notes</label>
-  <textarea id="endNotes" rows="4"></textarea>
 
   <button id="generateBtn">generate HTML</button>
 
