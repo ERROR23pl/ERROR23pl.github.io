@@ -78,3 +78,11 @@ document.getElementById("generateBtn").addEventListener("click", () => {
   document.getElementById("outputStart").value = generate_start(data);
   document.getElementById("outputEnd").value = generate_end(data);
 });
+
+document.getElementById("copyStart").addEventListener("click", () => {
+  const output = document.getElementById("outputStart");
+  navigator.clipboard.writeText(output.value)
+    .then(() => alert("Copied!"))
+    .catch(err => console.error("Copy failed:", err));
+});
+
