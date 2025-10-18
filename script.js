@@ -21,7 +21,7 @@ function generate_ui(data) {
       
       <td align="right">
         <a href="${(data.nextLink === "") ? COLLECTION_LINK : data.nextLink}">
-          Day ${data.dayNumber + 1}: ${(data.nextLink === "") ? "find out tomorrow! ⏭️" : data.nextCharacters}
+          Day ${parseInt(data.dayNumber, 10) + 1}: ${(data.nextLink === "") ? "find out tomorrow! ⏭️" : data.nextCharacters}
       </a></td>
     </tr>
   </tbody>
