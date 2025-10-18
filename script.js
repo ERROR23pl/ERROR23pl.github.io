@@ -1,10 +1,14 @@
 const COLLECTION_LINK = "https://archiveofourown.org/collections/holofics_shiptober_2025/profile";
 
+function ship(charA, charB, charC) {
+  return `${charA} x ${charB}` + (charC == "") ? "" : ` x ${charC}`
+}
+
 function generate_start(data) {
   return `<center>
   <a href="https://archiveofourown.org/collections/holofics_shiptober_2025/profile" rel="nofollow">Holofics Shiptober 2025</a>
   
-  <h4>Day ${data.dayNumber}: ${data.characters}</h4>
+  <h4>Day ${data.dayNumber}: ${ship(data.charactersA, data.charactersB, data.charactersC)}</h4>
 </center>
 ${data.startNotes}` + generate_ui(data);
 }
@@ -17,11 +21,11 @@ function generate_ui(data) {
   return `<table>
   <tbody>
     <tr>
-      <td align="left"><a href="${data.prevLink}">⏮️ Day ${data.dayNumber - 1}: ${data.prevCharacters}</a></td>
+      <td align="left"><a href="${data.prevLink}">⏮️ Day ${data.dayNumber - 1}: ${ship(data.prevCharactersA, data.prevCharactersB, data.prevCharactersC)}</a></td>
       
       <td align="right">
         <a href="${(data.nextLink === "") ? COLLECTION_LINK : data.nextLink}">
-          Day ${parseInt(data.dayNumber, 10) + 1}: ${(data.nextLink === "") ? "find out tomorrow! ⏭️" : data.nextCharacters}
+          Day ${parseInt(data.dayNumber, 10) + 1}: ${(data.nextLink === "") ? "find out tomorrow! ⏭️" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC)}
       </a></td>
     </tr>
   </tbody>
