@@ -77,6 +77,9 @@ document.getElementById("generateBtn").addEventListener("click", () => {
 
   document.getElementById("outputStart").value = generate_start(data);
   document.getElementById("outputEnd").value = generate_end(data);
+
+  document.getElementById("startNotesPreview").innerHTML = document.getElementById("outputStart").value;
+  document.getElementById("endNotesPreview").innerHTML = document.getElementById("outputEnd").value;
 });
 
 document.getElementById("copyStart").addEventListener("click", () => {
