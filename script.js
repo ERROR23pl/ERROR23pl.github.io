@@ -1,4 +1,4 @@
-const COLLECTION_LINK = "https://archiveofourown.org/collections/holofics_shiptober_2025/profile";
+const COLLECTION_LINK = "";
 
 function ship(charA, charB, charC) {
   return `${charA} x ${charB}` + ((charC == "") ? "" : ` x ${charC}`)
@@ -6,7 +6,7 @@ function ship(charA, charB, charC) {
 
 function generate_start(data) {
   return `<center>
-  <a href="https://archiveofourown.org/collections/holofics_shiptober_2025/profile" rel="nofollow">Holofics Shiptober 2025</a>
+  <a href="${COLLECTION_LINK}" rel="nofollow">Holofics Shiptober 2025</a>
   
   <h4>Day ${data.dayNumber}: ${data.prompt}</h4>
   <h4>${ship(data.charactersA, data.charactersB, data.charactersC)}</h4>
