@@ -52,7 +52,7 @@ function nextDay(data) {
 }
 
 function nextPrompt(data) {
-  let nextDayIsOut = (data.nextLink === "");
+  let nextDayIsOut = (data.nextLink !== "");
   
   let nextLink = nextDayIsOut ? COLLECTION_LINK : data.nextLink;
   
