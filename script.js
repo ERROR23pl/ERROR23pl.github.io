@@ -33,7 +33,8 @@ function nextDay(data) {
   
   let nextLink = nextDayNotOut ? COLLECTION_LINK : data.nextLink;
   let nextDayNumber = parseInt(data.dayNumber, 10) + 1;
-  let nextDayShip = nextDayNotOut ? "find out tomorrow!" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC);
+  let nextDayPrompt = nextDayNotOut ? "find out tomorrow!" : ${data.nextPrompt};
+  let nextDayShip = nextDayNotOut ? "" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC);
   
   if (data.dayNumber == 31) {
     return ""
