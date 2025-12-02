@@ -31,17 +31,24 @@ function prevDay(data) {
 function nextDay(data) {
   let nextDayNotOut = (data.nextLink === "");
   
-  let nextLink = nextDayNotOut ? COLLECTION_LINK : data.nextLink;
+  // let nextLink = nextDayNotOut ? COLLECTION_LINK : data.nextLink;
   let nextDayNumber = parseInt(data.dayNumber, 10) + 1;
-  let nextDayPrompt = nextDayNotOut ? "find out tomorrow!" : ${data.nextPrompt};
+  // let nextDayPrompt = nextDayNotOut ? "find out tomorrow!" : ${data.nextPrompt};
   let nextDayShip = nextDayNotOut ? "" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC);
   
   if (data.dayNumber == 31) {
     return ""
   }
+
+  if (nextDayNotOut) {
+    return `<td align="right">
+    <a href="${COLLECTION_LINK}">
+      <strong>Day ${nextDayNumber}: find out tomorrow!</strong> ⏭️ 
+    </a></td>`
+  }
   
   return `<td align="right">
-  <a href="${nextLink}">
+  <a href="${data.nextLink}">
     <strong>Day ${nextDayNumber}: ${data.nextPrompt}</strong> ⏭️<br>(${nextDayShip}) 
   </a></td>`
 }
