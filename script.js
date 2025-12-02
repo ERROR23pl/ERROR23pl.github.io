@@ -1,4 +1,5 @@
-const COLLECTION_LINK = "";
+const COLLECTION_LINK = "https://archiveofourown.org/collections/HoloficsOmegacember2025";
+const COLLECTION_NAME = "Holofics Omegacember 2025";
 
 function ship(charA, charB, charC) {
   return `${charA} x ${charB}` + ((charC == "") ? "" : ` x ${charC}`)
@@ -6,10 +7,10 @@ function ship(charA, charB, charC) {
 
 function generate_start(data) {
   return `<center>
-  <a href="${COLLECTION_LINK}" rel="nofollow">Holofics Shiptober 2025</a>
+  <h3><a href="${COLLECTION_LINK}" rel="nofollow">${COLLECTION_NAME}</a></h3>
   
   <h4>Day ${data.dayNumber}: ${data.prompt}</h4>
-  <h4>${ship(data.charactersA, data.charactersB, data.charactersC)}</h4>
+  <h5>${ship(data.charactersA, data.charactersB, data.charactersC)}</h5>
 </center>
 ${data.startNotes}` + generate_ui(data);
 }
@@ -19,48 +20,29 @@ function generate_end(data) {
 }
 
 function prevDay(data) {
-  if (data.dayNumber != 1) {
-    return `<td align="left"><a href="${data.prevLink}">⏮️ Day ${data.dayNumber - 1}: ${ship(data.prevCharactersA, data.prevCharactersB, data.prevCharactersC)}</a></td>`
-  } else {
+  if (data.dayNumber == 1) {
     return ""
   }
-}
 
-function prevPrompt(data) {
-  if (data.dayNumber != 1) {
-    return `<td align="left"><a href="${data.prevLink}">(${data.previousPrompt})</a></td>`
-  } else {
-    return ""
-  }
+  return `<td align="left">
+    <a href="${data.prevLink}">⏮️ <strong>Day ${data.dayNumber - 1}: ${data.previousPrompt}</strong><br>(${ship(data.prevCharactersA, data.prevCharactersB, data.prevCharactersC)})</a></td>`
 }
 
 function nextDay(data) {
-  let nextDayIsOut = (data.nextLink === "");
+  let nextDayNotOut = (data.nextLink === "");
   
-  let nextLink = nextDayIsOut ? COLLECTION_LINK : data.nextLink;
+  let nextLink = nextDayNotOut ? COLLECTION_LINK : data.nextLink;
   let nextDayNumber = parseInt(data.dayNumber, 10) + 1;
-  let nextDayShip = nextDayIsOut ? "find out tomorrow!" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC)
+  let nextDayShip = nextDayNotOut ? "find out tomorrow!" : ship(data.nextCharactersA, data.nextCharactersB, data.nextCharactersC);
   
-  if (data.dayNumber != 31) {
-    return `<td align="right">
-    <a href="${nextLink}">
-      Day ${nextDayNumber}: ${nextDayShip} ⏭️
-    </a></td>`
-  } else {
-    return ""
-  }
-}
-
-function nextPrompt(data) {
-  let nextDayIsOut = (data.nextLink !== "");
-  
-  let nextLink = nextDayIsOut ? COLLECTION_LINK : data.nextLink;
-  
-  if (data.dayNumber == 31 || !nextDayIsOut) {
+  if (data.dayNumber == 31) {
     return ""
   }
   
-  return `<td align="right"><a href="${nextLink}">(${data.nextPrompt})</a></td>`
+  return `<td align="right">
+  <a href="${nextLink}">
+    <strong>Day ${nextDayNumber}: ${data.nextPrompt}</strong> ⏭️<br>(${nextDayShip}) 
+  </a></td>`
 }
 
 function generate_ui(data) {
@@ -69,10 +51,6 @@ function generate_ui(data) {
     <tr>
       ${prevDay(data)}
       ${nextDay(data)}
-    </tr>
-    <tr>
-      ${prevPrompt(data)}
-      ${nextPrompt(data)}
     </tr>
   </tbody>
 </table>`;
